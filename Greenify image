@@ -1,0 +1,22 @@
+import cv2
+import numpy as np
+
+#read image
+src = cv2.imread('F:\Bozu.jpg', cv2.IMREAD_UNCHANGED)
+print(src.shape)
+
+blue_channel = src[:,:,0]
+green_channel = src[:,:,1]
+red_channel = src[:,:,2]
+
+blue_img = np.zeros(src.shape)
+green_img = np.zeros(src.shape)
+red_img = np.zeros(src.shape)
+
+blue_img[:,:,0] = blue_channel
+green_img[:,:,1] = green_channel
+red_img[:,:,2] = red_channel
+
+cv2.imwrite('F:\cv2-red-channel.jpg',red_img) 
+cv2.imwrite('F:\cv2-green-channel.jpg',green_img) 
+cv2.imwrite('F:\cv2-blue-channel.jpg',blue_img)
